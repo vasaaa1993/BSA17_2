@@ -10,6 +10,8 @@ namespace ZooEmulation
     {
         static void Main(string[] args)
         {
+			Wolf wolf = new Wolf("asdasd");
+			Console.WriteLine(wolf.ToString());
         }
     }
 }
