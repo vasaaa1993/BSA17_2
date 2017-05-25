@@ -4,24 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
+using ZooEmulation.Commands;
+using ZooEmulation.Animals;
+
+internal static class ListAnimalsExtension
+{
+	public static int FindIndexByAlias(this List<Animal> arr, string sAlias)
+	{
+		for (int i = 0; i < arr.Count; i++)
+		{
+			if (arr[i].Alias == sAlias)
+				return i;
+		}
+		return -1;
+	}
+}
 
 namespace ZooEmulation
 {
     class Zoo
     {
+
 		// commands
-		// add, (kind of animal, Alias)
-		// feed (alias)
+		// +add, (kind of animal, Alias)
+		// +feed (alias)
 		// treat (alias)
-		// delete (alias)
+		// remove (alias)
 		// show (-all/alias)
-        private List<Animal> _aAnimals; 
+		// help
+        private readonly List<Animal> _aAnimals;
+		private readonly List<CommandBase> _aCommands;
         public Zoo()
         {
-		    Timer timer;
-            SetTimer(out timer);
 
-            Loop();
+			_aAnimals = new List<Animal>();
+			_aCommands = new List<CommandBase>();
+
+			SetTimer(out Timer timer);
+
+			Loop();
 			Console.WriteLine("Closed");
             timer.Stop();
             timer.Dispose();
@@ -29,13 +50,25 @@ namespace ZooEmulation
 
         private void Loop()
         {
-            while(true)
+			while (true)
             {
 				string str = Console.ReadLine();
 				
                 ; // do nothing
             }
         }
+		private void RegisterCommands()
+		{
+			_aCommands.AddRange(
+				new CommandBase[] 
+				{
+					new CommandAdd(_aAnimals),
+					new CommandFeed(_aAnimals),
+					new CommandsRemove(_aAnimals),
+					new CommandsShow(_aAnimals),
+					new CommandsTreat(_aAnimals)
+				});
+		}
         private void SetTimer(out Timer timer)
         {
             timer = new Timer(5000);

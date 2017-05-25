@@ -1,4 +1,4 @@
-﻿namespace ZooEmulation
+﻿namespace ZooEmulation.Animals
 {
     abstract class Animal
     {

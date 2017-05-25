@@ -47,6 +47,13 @@
     <Compile Include="Animals\Elephant.cs" />
     <Compile Include="Animals\Fox.cs" />
     <Compile Include="Animals\Lion.cs" />
+    <Compile Include="Commands\CommandAdd.cs" />
+    <Compile Include="Commands\CommandAnimal.cs" />
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\CommandFeed.cs" />
+    <Compile Include="Commands\CommandsRemove.cs" />
+    <Compile Include="Commands\CommandsShow.cs" />
+    <Compile Include="Commands\CommandsTreat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Animals\Tiger.cs" />
@@ -56,5 +63,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
