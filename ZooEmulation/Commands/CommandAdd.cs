@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZooEmulation.Animals;
-
+using ZooEmulation.Creators;
 namespace ZooEmulation.Commands
 {
 	class CommandAdd : CommandAnimal
 	{
+		private AnimalProviderFactory _animalFactory;
 		public CommandAdd(List<Animal> animals):base("add", animals)
 		{
+			_animalFactory = new AnimalProviderFactory();
 		}
 		// add, (kind of animal, Alias)
 		public override CommandsReturn Execute(string[] parameters)
@@ -21,36 +23,12 @@ namespace ZooEmulation.Commands
 			int nIndex = _aAnimals.FindIndexByAlias(parameters[1]);
 			if (nIndex != -1)
 				return CommandsReturn.CR_OlREADY_EXIST;
-			switch(parameters[0].ToLower()) // type
-			{
-				case "bear":
-				case "b":
-					_aAnimals.Add(new Bear(parameters[1]));
-					break;
-				case "elephant":
-				case "e":
-					_aAnimals.Add(new Elephant(parameters[1]));
-					break;
-				case "fox":
-				case "f":
-					_aAnimals.Add(new Fox(parameters[1]));
-					break;
-				case "lion":
-				case "l":
-					_aAnimals.Add(new Lion(parameters[1]));
-					break;
-				case "tiger":
-				case "t":
-					_aAnimals.Add(new Tiger(parameters[1]));
-					break;
-				case "wolf":
-				case "w":
-					_aAnimals.Add(new Wolf(parameters[1]));
-					break;
-				default:
-					rez = CommandsReturn.CR_UNKNOWN_ANIMAL_TYPE;
-					break;
-			}
+			Animal an = _animalFactory.CreateAnimal(parameters[0].ToLower(), parameters[1]);
+
+			if (an == null)
+				rez = CommandsReturn.CR_UNKNOWN_ANIMAL_TYPE;
+			else
+				_aAnimals.Add(an);
 			return rez;
 		}
 
