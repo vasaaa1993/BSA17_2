@@ -26,5 +26,9 @@ namespace ZooEmulation.Commands
 
 			return CommandsReturn.CR_ALL_RIGHT;
 		}
+		public override string ToString()
+		{
+			return (base.ToString() + " <Alias>");
+		}
 	}
 }

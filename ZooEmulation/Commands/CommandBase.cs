@@ -31,6 +31,10 @@ namespace ZooEmulation.Commands
 			_sCommandStr = sCommand;
 		}
 
+		public new virtual string ToString()
+		{
+			return _sCommandStr;
+		}
 
 	}
 }

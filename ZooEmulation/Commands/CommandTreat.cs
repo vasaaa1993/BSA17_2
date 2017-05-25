@@ -7,9 +7,9 @@ using ZooEmulation.Animals;
 
 namespace ZooEmulation.Commands
 {
-	class CommandsTreat : CommandAnimal
+	class CommandTreat : CommandAnimal
 	{
-		public CommandsTreat(List<Animal> animals) : base("treat", animals)
+		public CommandTreat(List<Animal> animals) : base("treat", animals)
 		{
 		}
 
@@ -24,6 +24,11 @@ namespace ZooEmulation.Commands
 				return CommandsReturn.CR_ANIMAL_WAS_DEAD;
 			_aAnimals[nIndex].Treat();
 			return CommandsReturn.CR_ALL_RIGHT;
+		}
+
+		public override string ToString()
+		{
+			return (base.ToString() + " <Alias>");
 		}
 	}
 }

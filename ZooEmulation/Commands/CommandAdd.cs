@@ -50,5 +50,10 @@ namespace ZooEmulation.Commands
 			}
 			return rez;
 		}
+
+		public override string ToString()
+		{
+			return (base.ToString() + " <AnimalType> <Alias>\n\rAnimalType - can write full or short (fox or f)");
+		}
 	}
 }

@@ -53,8 +53,20 @@ namespace ZooEmulation
 			while (true)
             {
 				string str = Console.ReadLine();
-				
-                ; // do nothing
+				List<string> arr = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+				bool bInvalidCommand = true;
+				foreach (CommandBase cmd in _aCommands)
+				{
+					if(cmd.CommandStr == arr[0])
+					{
+						bInvalidCommand = false;
+						arr.RemoveAt(0);
+						cmd.Execute(arr.ToArray());
+						break;
+					}
+				}
+				if(bInvalidCommand)
+					Console.WriteLine("Invalid command.You can write 'help' to get list of all commands.");
             }
         }
 		private void RegisterCommands()
@@ -65,8 +77,9 @@ namespace ZooEmulation
 					new CommandAdd(_aAnimals),
 					new CommandFeed(_aAnimals),
 					new CommandsRemove(_aAnimals),
-					new CommandsShow(_aAnimals),
-					new CommandsTreat(_aAnimals)
+					new CommandShow(_aAnimals),
+					new CommandTreat(_aAnimals),
+					new CommandHelp(_aCommands)
 				});
 		}
         private void SetTimer(out Timer timer)

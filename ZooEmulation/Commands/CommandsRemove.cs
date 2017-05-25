@@ -25,5 +25,10 @@ namespace ZooEmulation.Commands
 			_aAnimals.RemoveAt(nIndex);
 			return CommandsReturn.CR_ALL_RIGHT;
 		}
+
+		public override string ToString()
+		{
+			return (base.ToString() + " <Alias>");
+		}
 	}
 }
