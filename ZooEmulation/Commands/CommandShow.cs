@@ -18,7 +18,7 @@ namespace ZooEmulation.Commands
 			if (parameters.Length != 1)
 				return CommandsReturn.CR_INVALID_ARGS;
 			Console.WriteLine("-----");
-			if (parameters[0] == "all")
+			if (parameters[0] == "-all")
 			{
 				if (_aAnimals.Count != 0)
 				{

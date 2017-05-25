@@ -10,6 +10,7 @@ namespace ZooEmulation
     {
         static void Main(string[] args)
         {
+			Zoo zoo = new Zoo();
 			
         }
     }
