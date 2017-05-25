@@ -18,6 +18,9 @@ namespace ZooEmulation.Commands
 			CommandsReturn rez = CommandsReturn.CR_ALL_RIGHT;
 			if (parameters.Length != 2)
 				return CommandsReturn.CR_INVALID_ARGS;
+			int nIndex = _aAnimals.FindIndexByAlias(parameters[1]);
+			if (nIndex != -1)
+				return CommandsReturn.CR_OlREADY_EXIST;
 			switch(parameters[0].ToLower()) // type
 			{
 				case "bear":

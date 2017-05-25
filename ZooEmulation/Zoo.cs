@@ -63,13 +63,15 @@ namespace ZooEmulation
 				string str = Console.ReadLine();
 				List<string> arr = str.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 				bool bInvalidCommand = true;
+				if (arr.Count == 0)
+					continue;
 				foreach (CommandBase cmd in _aCommands)
 				{
-					if(cmd.CommandStr == arr[0])
+					if (cmd.CommandStr == arr[0])
 					{
 						bInvalidCommand = false;
 						arr.RemoveAt(0);
-						cmd.Execute(arr.ToArray());
+						Console.WriteLine(CommandBase.ReturnCodeToString(cmd.Execute(arr.ToArray())));
 						break;
 					}
 				}
