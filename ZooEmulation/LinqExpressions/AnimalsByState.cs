@@ -15,7 +15,7 @@ namespace ZooEmulation.LinqExpressions
 
 		public override int ExecuteAndShow(params string[] param)
 		{
-			if (param.Count() != 1 || Enum.TryParse(param[0], out Animal.State st))
+			if (param.Count() != 1 || !Enum.TryParse(param[0], out Animal.State st))
 				return -1;
 			var aAnimalsByState = _aAnimals.Where(an => an.StateOfAnimal == st);
 
@@ -37,7 +37,7 @@ namespace ZooEmulation.LinqExpressions
 					sParametesr.Append("|");
 				sParametesr.Append($"{name}");
 			}
-			return $"'{_sCallString}' - Get animals by state. Parametr - state({sParametesr.ToString()})";
+			return $"'{_sCallString}' - Get animals by state. Parameter - state({sParametesr.ToString()})";
 		}
 	}
 }

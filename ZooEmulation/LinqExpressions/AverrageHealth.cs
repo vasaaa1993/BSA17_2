@@ -17,7 +17,7 @@ namespace ZooEmulation.LinqExpressions
 		{
 			var rez = _aAnimals.Average(an => an.Health);
 			Console.WriteLine();
-			Console.WriteLine("0:0.000", rez);
+			Console.WriteLine("{0:0.000}", rez);
 			Console.WriteLine();
 			return 0;
 		}

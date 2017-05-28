@@ -15,7 +15,7 @@ namespace ZooEmulation.LinqExpressions
 
 		public override int ExecuteAndShow(params string[] param)
 		{
-			var arr = _aAnimals.GroupBy(an => an.GetType())
+			var arr = _aAnimals.Where(an=>an.StateOfAnimal == Animal.State.Dead).GroupBy(an => an.GetType())
 				.Select(gr => (Type: gr.Key.Name, Count: gr.Count()));
 			Console.WriteLine();
 			if(!IsEmptyCW(arr))

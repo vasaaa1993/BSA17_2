@@ -41,7 +41,11 @@ namespace ZooEmulation
 			_aAnimals = new List<Animal>();
 			_aCommands = new List<CommandBase>();
 			RegisterCommands();
-
+			foreach(var command in _aCommands)
+			{
+				if(command.CommandStr == "linq")
+					Console.WriteLine(command.ToString());
+			}
 			_bAllAnimalsDead = false;
 
 			SetTimer(out Timer timer);
@@ -53,6 +57,24 @@ namespace ZooEmulation
 
         private void Loop()
         {
+			/*
+			_aAnimals.Add(new Lion("Boom") { Health = 0, StateOfAnimal = Animal.State.Dead });
+			_aAnimals.Add(new Lion("Zoom") { Health = 3, StateOfAnimal = Animal.State.Hungry });
+			_aAnimals.Add(new Lion("Dart") { Health = 1, StateOfAnimal = Animal.State.Hungry });
+			_aAnimals.Add(new Lion("Cool") { StateOfAnimal = Animal.State.Sick });
+			_aAnimals.Add(new Lion("li"));
+
+			_aAnimals.Add(new Bear("br1") { Health = 0, StateOfAnimal = Animal.State.Dead });
+			_aAnimals.Add(new Bear("br2") { Health = 4, StateOfAnimal = Animal.State.Sick });
+			_aAnimals.Add(new Bear("br3"));
+			
+			_aAnimals.Add(new Tiger("tg") { StateOfAnimal = Animal.State.Sick });
+
+			_aAnimals.Add(new Elephant("El1") { Health = 0, StateOfAnimal = Animal.State.Dead });
+			_aAnimals.Add(new Elephant("El2") { Health = 6, StateOfAnimal = Animal.State.Sick });
+			_aAnimals.Add(new Elephant("a"));
+			*/
+
 			while (true)
             {
 				if(_bAllAnimalsDead)
@@ -71,7 +93,8 @@ namespace ZooEmulation
 					{
 						bInvalidCommand = false;
 						arr.RemoveAt(0);
-						Console.WriteLine(CommandBase.ReturnCodeToString(cmd.Execute(arr.ToArray())));
+						cmd.Execute(arr.ToArray());
+						//Console.WriteLine(CommandBase.ReturnCodeToString(cmd.Execute(arr.ToArray())));
 						break;
 					}
 				}

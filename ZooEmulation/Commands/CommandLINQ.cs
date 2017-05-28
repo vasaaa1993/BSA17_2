@@ -15,16 +15,16 @@ namespace ZooEmulation.Commands
 			_aExpersions = new List<BaseExpression>();
 			_aExpersions.AddRange(
 				new BaseExpression[] {
+					new GroupByType(_aAnimals),
+					new AnimalsByState(_aAnimals),
 					new AllSickTiger(_aAnimals),
-					new AverrageHealth(_aAnimals),
-					new BearsAndWolfs(_aAnimals),
 					new ElephantByAlias(_aAnimals),
 					new AliasesOfHungryAnimals(_aAnimals),
-					new AnimalsByState(_aAnimals),
-					new CountOfDeadAnimalscs(_aAnimals),
-					new GroupByType(_aAnimals),
 					new HealthiestAnimalsByType(_aAnimals),
-					new MinMaxHealthAnimal(_aAnimals)
+					new CountOfDeadAnimalscs(_aAnimals),
+					new BearsAndWolfs(_aAnimals),
+					new MinMaxHealthAnimal(_aAnimals),
+					new AverrageHealth(_aAnimals)
 				});
 		}
 
@@ -53,8 +53,9 @@ namespace ZooEmulation.Commands
 		{
 			StringBuilder sBuild = new StringBuilder();
 			sBuild.AppendLine($"{base.ToString()} <linq command nump> [parameters]");
+			sBuild.AppendLine("linq command nump:");
 			foreach(var ex in _aExpersions)
-				sBuild.AppendLine($"\t{ex}");
+				sBuild.AppendLine($"\t{ex.GetHelp()}");
 			return sBuild.ToString();
 		}
 	}

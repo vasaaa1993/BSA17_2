@@ -17,7 +17,7 @@ namespace ZooEmulation.LinqExpressions
 		{
 			if(param.Count() != 1)
 				return -1;
-			var elephantByAlias = _aAnimals.Where(an => an.Alias == param[0] && an.GetType() == typeof(Elephant)).First();
+			var elephantByAlias = _aAnimals.Where(an => an.Alias == param[0] && an.GetType() == typeof(Elephant)).FirstOrDefault();
 			Console.WriteLine();
 			if(elephantByAlias == null)
 			{
@@ -33,7 +33,7 @@ namespace ZooEmulation.LinqExpressions
 
 		public override string GetHelp()
 		{
-			return $"'{_sCallString}' - Show elephant by alias. Parametr - alias";
+			return $"'{_sCallString}' - Show elephant by alias. Parameter - alias";
 		}
 	}
 }

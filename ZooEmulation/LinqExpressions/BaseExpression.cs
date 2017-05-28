@@ -16,7 +16,7 @@ namespace ZooEmulation.LinqExpressions
 		{
 			get
 			{
-				return _cEmptyRez;
+				return _sCallString;
 			}
 		}
 		public BaseExpression(string sCallStr, List<Animal> animals)

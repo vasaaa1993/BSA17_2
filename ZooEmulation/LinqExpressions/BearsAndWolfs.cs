@@ -20,7 +20,7 @@ namespace ZooEmulation.LinqExpressions
 			if (!IsEmptyCW(arr))
 			{
 				foreach (var item in arr)
-					Console.WriteLine(arr);
+					Console.WriteLine(item);
 			}
 			Console.WriteLine();
 			return 0;
