@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandLINQ.cs" />
     <Compile Include="Creators\AnimalProviderFactory.cs" />
     <Compile Include="Animals\Animal.cs" />
     <Compile Include="Animals\Bear.cs" />
@@ -72,8 +73,8 @@
     <Compile Include="Creators\TigerCreator.cs" />
     <Compile Include="Creators\WolfCreator.cs" />
     <Compile Include="LinqExpressions\BaseExpression.cs" />
-    <Compile Include="LinqExpressions\GetAnimalsByState.cs" />
-    <Compile Include="LinqExpressions\GetAliasesOfHungryAnimals.cs" />
+    <Compile Include="LinqExpressions\AnimalsByState.cs" />
+    <Compile Include="LinqExpressions\AliasesOfHungryAnimals.cs" />
     <Compile Include="LinqExpressions\GroupByType.cs" />
     <Compile Include="LinqExpressions\AllSickTiger.cs" />
     <Compile Include="LinqExpressions\ElephantByAlias.cs" />

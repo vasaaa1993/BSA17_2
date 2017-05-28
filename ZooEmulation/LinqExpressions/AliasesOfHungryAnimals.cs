@@ -7,9 +7,9 @@ using ZooEmulation.Animals;
 
 namespace ZooEmulation.LinqExpressions
 {
-	class GetAliasesOfHungryAnimals : BaseExpression
+	class AliasesOfHungryAnimals : BaseExpression
 	{
-		public GetAliasesOfHungryAnimals(List<Animal> animals) : base("5", animals)
+		public AliasesOfHungryAnimals(List<Animal> animals) : base("5", animals)
 		{
 		}
 

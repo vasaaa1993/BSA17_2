@@ -11,7 +11,14 @@ namespace ZooEmulation.LinqExpressions
 	{
 		protected readonly List<Animal> _aAnimals;
 		protected readonly string _sCallString;
-		protected const string _cEmptyRez = "empty result(";
+		protected const string _cEmptyRez = "empty result:(";
+		public string CallString
+		{
+			get
+			{
+				return _cEmptyRez;
+			}
+		}
 		public BaseExpression(string sCallStr, List<Animal> animals)
 		{
 			_sCallString = sCallStr;

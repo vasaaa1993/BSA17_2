@@ -89,7 +89,8 @@ namespace ZooEmulation
 					new CommandsRemove(_aAnimals),
 					new CommandShow(_aAnimals),
 					new CommandTreat(_aAnimals),
-					new CommandHelp(_aCommands)
+					new CommandHelp(_aCommands),
+					new CommandLINQ(_aAnimals)
 				});
 		}
         private void SetTimer(out Timer timer)
